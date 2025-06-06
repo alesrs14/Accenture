@@ -8,5 +8,7 @@ import java.util.List;
 public interface IFranchiseService {
     void saveFranchise(Franchise franchise);
     List<MaxProductBranchDTO> getMaxProductBranch(Long franchiseId);
+    void updateNameFranchise(Long franchiseID, String newName);
+
 
 }

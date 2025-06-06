@@ -48,4 +48,11 @@ public class ProductServiceImpl implements IProductService {
         product.setStock(newStock);
         productDao.save(product);
     }
+    @Override
+    public void updateNameProduct(Long productId, String newName) {
+        Product product = productDao.findById(productId)
+                .orElseThrow(() -> new RuntimeException("producto no encontrada"));
+        product.setName(newName);
+        productDao.save(product);
+    }
 }

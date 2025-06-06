@@ -9,4 +9,5 @@ import java.util.List;
 public interface IBranchService {
     void saveBranch(Branch branch);
     void addBranch(Long franchiseId, Branch branch);
+    void updateNameBranch(Long branchId, String newName);
 }

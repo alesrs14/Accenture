@@ -1,5 +1,6 @@
 package com.accenture.testaccenture.web;
 
+import com.accenture.testaccenture.domain.Branch;
 import com.accenture.testaccenture.domain.Product;
 import com.accenture.testaccenture.service.IFranchiseService;
 import com.accenture.testaccenture.service.IProductService;
@@ -34,5 +35,13 @@ public class ProductController {
     ) {
         productService.updateStockProduct(productId, product.getStock());
         return ResponseEntity.ok("Stock actualizado");
+    }
+    @PatchMapping("/{productId}/updatenameproduct")
+    public ResponseEntity<String> updateNameBranch(
+            @PathVariable Long productId,
+            @RequestBody Product product
+    ) {
+        productService.updateNameProduct(productId, product.getName());
+        return ResponseEntity.ok("Nombre Producto actualizado");
     }
 }

@@ -1,5 +1,6 @@
 package com.accenture.testaccenture.web;
 import com.accenture.testaccenture.domain.Franchise;
+import com.accenture.testaccenture.domain.Product;
 import com.accenture.testaccenture.dto.response.MaxProductBranchDTO;
 import com.accenture.testaccenture.service.IFranchiseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,5 +28,13 @@ public class FranchiseController {
         List<MaxProductBranchDTO> result =
                 franchiseService.getMaxProductBranch(franchiseId);
         return ResponseEntity.ok(result);
+    }
+    @PatchMapping("/{franchiseId}/updatenamefranchise")
+    public ResponseEntity<String> updateNameFranchise(
+            @PathVariable Long franchiseId,
+            @RequestBody Franchise franchise
+    ) {
+        franchiseService.updateNameFranchise(franchiseId, franchise.getName());
+        return ResponseEntity.ok("Nombre Franquicia actualizado");
     }
 }

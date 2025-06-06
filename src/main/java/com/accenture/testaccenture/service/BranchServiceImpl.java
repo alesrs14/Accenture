@@ -30,5 +30,11 @@ public class BranchServiceImpl implements IBranchService {
             branchDao.save(branch);
         }
     }
-
+    @Override
+    public void updateNameBranch(Long branchId, String newName) {
+        Branch branch = branchDao.findById(branchId)
+                .orElseThrow(() -> new RuntimeException("sucursal no encontrada"));
+branch.setName(newName);
+branchDao.save(branch);
+    }
 }
