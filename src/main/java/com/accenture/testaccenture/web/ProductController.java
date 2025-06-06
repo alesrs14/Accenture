@@ -27,4 +27,12 @@ public class ProductController {
         productService.deleteProduct(branchId, productId);
         return ResponseEntity.ok("Producto eliminado");
     }
+    @PatchMapping("/{productId}/stock")
+    public ResponseEntity<String> updateProductStock(
+            @PathVariable Long productId,
+            @RequestBody Product product
+    ) {
+        productService.updateStockProduct(productId, product.getStock());
+        return ResponseEntity.ok("Stock actualizado");
+    }
 }

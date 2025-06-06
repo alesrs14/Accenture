@@ -32,13 +32,20 @@ public class ProductServiceImpl implements IProductService {
     @Override
     public void deleteProduct(Long branchId, Long productId) {
         Product product = productDao.findById(productId)
-                .orElseThrow(() -> new RuntimeException("Product not found"));
+                .orElseThrow(() -> new RuntimeException("Producto no encontrado"));
 
         if (product.getBranch() == null || !product.getBranch().getId().equals(branchId)) {
-            throw new RuntimeException("Product does not belong to this branch");
+            throw new RuntimeException("Producto no esta en esta sucursal");
         }
 
         productDao.delete(product);
     }
+    @Override
+    public void updateStockProduct(Long productId, Long newStock) {
+        Product product = productDao.findById(productId)
+                .orElseThrow(() -> new RuntimeException("Producto no encontrado"));
 
+        product.setStock(newStock);
+        productDao.save(product);
+    }
 }
