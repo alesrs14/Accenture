@@ -29,5 +29,16 @@ public class ProductServiceImpl implements IProductService {
         product.setBranch(branch);
         productDao.save(product);
     }
+    @Override
+    public void deleteProduct(Long branchId, Long productId) {
+        Product product = productDao.findById(productId)
+                .orElseThrow(() -> new RuntimeException("Product not found"));
+
+        if (product.getBranch() == null || !product.getBranch().getId().equals(branchId)) {
+            throw new RuntimeException("Product does not belong to this branch");
+        }
+
+        productDao.delete(product);
+    }
 
 }
