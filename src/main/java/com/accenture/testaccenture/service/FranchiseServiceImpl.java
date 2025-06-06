@@ -43,4 +43,12 @@ public class FranchiseServiceImpl implements IFranchiseService {
 
         return result;
     }
+    @Override
+    public void updateNameFranchise(Long franchiseId, String newName) {
+        Franchise franchise = franchiseDao.findById(franchiseId)
+                .orElseThrow(() -> new RuntimeException("Producto no encontrado"));
+
+        franchise.setName(newName);
+        franchiseDao.save(franchise);
+    }
 }
