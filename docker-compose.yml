@@ -3,7 +3,7 @@ services:
 
   db:
     image: mysql
-    restart: no
+    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 'root'
       MYSQL_DATABASE: 'Accenture'
