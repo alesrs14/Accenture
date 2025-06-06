@@ -16,6 +16,6 @@ public class Franchise {
     private String name;
     @OneToMany
     @JoinColumn(name="franchise_id")
-    private List<Branch> branches = new ArrayList<>();
+    private List<Branch> branches;
 
 }

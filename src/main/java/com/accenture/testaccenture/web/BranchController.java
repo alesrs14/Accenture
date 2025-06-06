@@ -1,6 +1,5 @@
 package com.accenture.testaccenture.web;
 import com.accenture.testaccenture.domain.Branch;
-import com.accenture.testaccenture.domain.Franchise;
 import com.accenture.testaccenture.service.IBranchService;
 import com.accenture.testaccenture.service.IFranchiseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-public class ControllerBranch {
+public class BranchController {
 
     @Autowired
     private IBranchService branchService;
@@ -25,6 +24,6 @@ public class ControllerBranch {
             @RequestBody Branch branch
     ) {
         branchService.addBranch(franchiseId, branch);
-        return ResponseEntity.ok("Branch added successfully");
+        return ResponseEntity.ok("Sucursal Guardada");
     }
 }
