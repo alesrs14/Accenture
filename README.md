@@ -176,3 +176,6 @@ curl --location '46.183.112.36:8443/savefranchise' \
 --header 'Content-Type: application/json' \
 --data '{"name":"franquiciadesde web"}'
 ```
+
+# pruebas en nube
+** cambiar localhost:8080 por 46.183.112.36:8443 **
